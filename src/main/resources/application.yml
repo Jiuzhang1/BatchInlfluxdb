@@ -1,0 +1,22 @@
+server:
+  port: 8082
+spring:
+  influx:
+    user: root
+    password: root
+    database: sany
+    retention-policy: rp_infinite
+    measurement: WindFarmData10m
+    connect-timeout: 10
+    read-timeout: 30
+    write-timeout: 10
+    gzip: true
+    correct-windfarm: "测试专用4风场F7766-01"
+    wrong-windfarm: "测试专用4风场F7766"
+    #需要迁移的数据库ip
+    remote-url: http://10.0.6.10:58086
+    #需要迁移到另外一台服务器的数据库ip
+    url: http://10.0.6.10:58086
+measurement-retention:
+  #需要迁移的表及存储策略
+  measurements: { WindFarmData10m: 'rp_infinite', WindFarmData1d: 'rp_infinite_1d', WindFarmEventData: 'rp_infinite', WindFarmStateData: 'rp_infinite'}
